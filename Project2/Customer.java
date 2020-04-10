@@ -4,20 +4,17 @@ import java.util.*;
  *
  * @author EvanVu
  */
-public class Customer implements Comparable<Customer>
+public class Customer
 {
     //Seconds after arrival that the Customer arrives
-    int arrivalTime;
+    float waitTime;
 
     /**
      * Constructor for a Customer
      */
-    public Customer(int arrivalTime)
+    public Customer(float waitTime)
     {
-        this.arrivalTime = arrivalTime;
+        this.waitTime = waitTime;
     }
 
-    public int compareTo(Customer cmp){
-        return this.arrivalTime - cmp.arrivalTime;
-    }
 }

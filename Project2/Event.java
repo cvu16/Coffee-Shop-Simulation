@@ -7,16 +7,17 @@ import java.util.*;
  * Adapted from Mark Allan Weiss
  */
 public class Event implements Comparable<Event>
-{    
+{
     int cusNum;
     int time;
     char type;
+    int lineNum;
     
     public Event(){
-        this(0,0,'a');
+        this(0,0,'a',-1);
     }
     
-    public Event(int cusNum, int time, char type){
+    public Event(int linNum, int time, char type, int lineNum){
         this.cusNum=cusNum;
         this.time=time;
         this.type=type;

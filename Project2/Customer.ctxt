@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Customer
+comment0.text=\r\n\ Customer\ class\r\n\r\n\ @author\ EvanVu\r\n
+comment1.params=waitTime
+comment1.target=Customer(float)
+comment1.text=\r\n\ Constructor\ for\ a\ Customer\r\n
+numComments=2

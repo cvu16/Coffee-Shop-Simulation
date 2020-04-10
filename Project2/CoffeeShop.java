@@ -7,21 +7,21 @@ import java.util.*;
 public class CoffeeShop
 {
     private int cashierNum;
-    private final int opTimeInSec = 60*3*60;
-    private ArrayDeque<Customer>[] cashier;
+    private final int opTime = 60*3*60;
+    private ArrayList<ArrayDeque<Customer>> cashier;
     Random r;
     PriorityQueue<Event> eventSet = new PriorityQueue<Event>();
-    private int p1;
-    private int p2;
+    private float p1;
+    private float p2;
     private float cost;
     private int t1;
     private int t2;
     private int overflow;
     
     public CoffeeShop(int cashierNum, int t1, int t2, int cost,
-    int p1, int p2){
+    float p1, float p2){
         this.cashierNum = cashierNum;
-        this.cashier = new ArrayDeque[cashierNum];
+        this.cashier = new ArrayList<ArrayDeque<Customer>>(cashierNum);
         this.t1 = t1;
         this.t2 = t2;
         this.cost = cost;
@@ -29,22 +29,63 @@ public class CoffeeShop
         this.p2 = p2;
     }
     
-    public void nextEvent(){
+    public void addEvent(){
         
     }
     
-    public void checkCashier(){
-        
+    public int minCashier(){
+        int result=-1;
+        int temp=9;
+        for(int i=0; i<cashierNum;i++){
+            if(this.cashier.get(i).size()<temp){
+                temp=this.cashier.get(i).size();
+                result=i;
+            }
+        }
+        return result;
     }
-    
+
+    public float lineWait(int cashierNum){
+        float result=0;
+        int i=0;
+        for(Customer cus:cashier.get(i)){
+            result+=cus.waitTime;
+            i++;
+        }
+        return result;
+    }
     
     public void runSim(){
         int overflow=0;
-        
+        float profEach=0;
+        int slots=this.cashierNum*8;
+        Event nextE = null;
         while (!eventSet.isEmpty()){
-            
-        
+           nextE = eventSet.remove();
+           if (nextE.time > opTime && nextE.type == 'a') break;
+           if (nextE.type == 'd'){
+               slots++;
+               cashier.get(nextE.lineNum).remove();
+               System.out.println("User" + nextE.cusNum + "hangs up at time" + nextE.time);
+           }
+           else{
+               System.out.print("User" + nextE.cusNum + "came at" + nextE.time);
+               if (slots>0){
+                   slots--;
+                   int cashNo=this.minCashier();
+                   float howlong=this.lineWait(cashNo);
+                   Customer newCus = new Customer(r.nextFloat()*(p2-p1));
+                   howlong+=newCus.waitTime;
+                   cashier.get(cashNo).add(newCus);
+                   System.out.println("and takes" + howlong);
+                   nextE.type='d';
+                   nextE.lineNum=cashNo;
+                   eventSet.add(nextE);
+               }
+               else overflow++; System.out.println("Full shop");
+           }
+        }
+        System.out.println("Shop is closed");
     }
-    
-    
 }
+    
