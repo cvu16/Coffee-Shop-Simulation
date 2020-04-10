@@ -18,7 +18,7 @@ public class CoffeeShop
     private int t2;
     private int overflow;
     
-    public CoffeeShop(int cashierNum, int t1, int t2, int cost,
+    public CoffeeShop(int cashierNum, int t1, int t2, float cost,
     float p1, float p2){
         this.cashierNum = cashierNum;
         this.cashier = new ArrayList<ArrayDeque<Customer>>(cashierNum);
@@ -68,7 +68,7 @@ public class CoffeeShop
                cashier.get(nextE.lineNum).remove();
                System.out.println("User" + nextE.cusNum + "hangs up at time" + nextE.time);
            }
-           else{
+           else {
                System.out.print("User" + nextE.cusNum + "came at" + nextE.time);
                if (slots>0){
                    slots--;

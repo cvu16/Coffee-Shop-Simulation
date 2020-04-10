@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import java.text.*;
 /**
  * Main class to read input into the CoffeeShop simulator
  * Author Evan Vu
@@ -11,16 +12,23 @@ public class Main
         int cusNum=0;
         float p1 = sc.nextFloat();
         float p2 = sc.nextFloat();
-        int cost = sc.nextInt();
+        float cost = sc.nextFloat();
         int t1 = sc.nextInt();
         int t2 = sc.nextInt();
         CoffeeShop shop = new CoffeeShop(4,t1,t2,cost,p1,p2);
         while (sc.hasNext()){
             cusNum++;
-            String newTime = sc.nextLine();
-            String[] time = newTime.split(":");
-            int eventTime = (Integer.parseInt(time[0])-6)*3600+Integer.parseInt(time[1])*60 +
-            Integer.parseInt(time[2]);
+            String newTime = sc.next();
+            /*String[] time = newTime.split(":");
+            
+                int hour = Integer.parseInt(time[0]);
+                int mins = Integer.parseInt(time[1]);
+                int secs = Integer.parseInt(time[2]);
+                int eventTime = hour*3600 + mins*60 + secs;
+            */
+            SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
+            Date date = sdf.parse(newTime);
+            int eventTime = (int) date.getTime()/1000 - 21600;
             shop.addArrival(cusNum, eventTime);
         }
         shop.runSim();
