@@ -29,8 +29,8 @@ public class CoffeeShop
         this.p2 = p2;
     }
     
-    public void addEvent(){
-        
+    public void addArrival(int cusNum, int time){
+        this.eventSet.add(new Event(cusNum,time,'a',-1));
     }
     
     public int minCashier(){
@@ -45,8 +45,8 @@ public class CoffeeShop
         return result;
     }
 
-    public float lineWait(int cashierNum){
-        float result=0;
+    public int lineWait(int cashierNum){
+        int result=0;
         int i=0;
         for(Customer cus:cashier.get(i)){
             result+=cus.waitTime;
@@ -57,7 +57,7 @@ public class CoffeeShop
     
     public void runSim(){
         int overflow=0;
-        float profEach=0;
+        float profit=0;
         int slots=this.cashierNum*8;
         Event nextE = null;
         while (!eventSet.isEmpty()){
@@ -73,8 +73,9 @@ public class CoffeeShop
                if (slots>0){
                    slots--;
                    int cashNo=this.minCashier();
-                   float howlong=this.lineWait(cashNo);
-                   Customer newCus = new Customer(r.nextFloat()*(p2-p1));
+                   int howlong=this.lineWait(cashNo);
+                   profit+=r.nextFloat()*(p2-p1);
+                   Customer newCus = new Customer(r.nextInt(t2-t1)+t1);
                    howlong+=newCus.waitTime;
                    cashier.get(cashNo).add(newCus);
                    System.out.println("and takes" + howlong);
@@ -85,7 +86,8 @@ public class CoffeeShop
                else overflow++; System.out.println("Full shop");
            }
         }
-        System.out.println("Shop is closed");
+        System.out.println("Shop is closed. Number of overflows: " + overflow + ". Profit: " +
+        (profit - (float)cost*cashierNum));
     }
 }
     

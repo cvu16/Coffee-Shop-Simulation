@@ -8,19 +8,20 @@ import java.util.*;
  */
 public class Event implements Comparable<Event>
 {
-    int cusNum;
     int time;
     char type;
     int lineNum;
+    int cusNum;
     
     public Event(){
-        this(0,0,'a',-1);
+        this(-1,-1,'a',-1);
     }
     
-    public Event(int linNum, int time, char type, int lineNum){
+    public Event(int cusNum, int time, char type, int lineNum){
         this.cusNum=cusNum;
         this.time=time;
         this.type=type;
+        this.lineNum=lineNum;
     }
     
     public int compareTo( Event rhs )
