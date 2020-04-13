@@ -6,7 +6,7 @@ import java.util.*;
  */
 public class Customer
 {
-    //Seconds after arrival that the Customer arrives
+    //Seconds that the Customer takes
     float waitTime;
 
     /**

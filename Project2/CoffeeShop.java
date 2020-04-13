@@ -7,8 +7,8 @@ import java.util.*;
 public class CoffeeShop
 {
     private int cashierNum;
-    private final int opTime = 60*3*60;
-    private ArrayList<ArrayDeque<Customer>> cashier;
+    private final int opTime = 60*18*60;
+    ArrayList<ArrayDeque<Customer>> cashier;
     Random r = new Random(System.nanoTime());
     PriorityQueue<Event> eventSet = new PriorityQueue<Event>();
     private float p1;
@@ -40,7 +40,7 @@ public class CoffeeShop
         int result=-1;
         int temp=9;
         for(int i=0; i<cashierNum;i++){
-            if(this.cashier.get(i)==null){
+            if(this.cashier.get(i).isEmpty()){
                 result=i;
                 break;
             }
@@ -54,10 +54,8 @@ public class CoffeeShop
 
     public int lineWait(int cashierNum){
         int result=0;
-        int i=0;
-        for(Customer cus:cashier.get(i)){
+        for(Customer cus:cashier.get(cashierNum)){
             result+=cus.waitTime;
-            i++;
         }
         return result;
     }
