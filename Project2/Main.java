@@ -15,7 +15,7 @@ public class Main
         float cost = sc.nextFloat();
         int t1 = sc.nextInt();
         int t2 = sc.nextInt();
-        CoffeeShop shop = new CoffeeShop(4,t1,t2,cost,p1,p2);
+        CoffeeShop shop = new CoffeeShop(1,t1,t2,cost,p1,p2);
         while (sc.hasNext()){
             cusNum++;
             String newTime = sc.next();
@@ -28,7 +28,7 @@ public class Main
             */
             SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
             Date date = sdf.parse(newTime);
-            int eventTime = (int) date.getTime()/1000 - 21600;
+            int eventTime = (int) date.getTime()/1000 - 18000;
             shop.addArrival(cusNum, eventTime);
         }
         shop.runSim();

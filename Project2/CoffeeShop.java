@@ -9,7 +9,7 @@ public class CoffeeShop
     private int cashierNum;
     private final int opTime = 60*3*60;
     private ArrayList<ArrayDeque<Customer>> cashier;
-    Random r;
+    Random r = new Random(System.nanoTime());
     PriorityQueue<Event> eventSet = new PriorityQueue<Event>();
     private float p1;
     private float p2;
@@ -21,7 +21,10 @@ public class CoffeeShop
     public CoffeeShop(int cashierNum, int t1, int t2, float cost,
     float p1, float p2){
         this.cashierNum = cashierNum;
-        this.cashier = new ArrayList<ArrayDeque<Customer>>(cashierNum);
+        this.cashier = new ArrayList<ArrayDeque<Customer>>();
+        for (int i=0; i<cashierNum; i++){
+            this.cashier.add(new ArrayDeque<Customer>(8));
+        }
         this.t1 = t1;
         this.t2 = t2;
         this.cost = cost;
@@ -37,6 +40,10 @@ public class CoffeeShop
         int result=-1;
         int temp=9;
         for(int i=0; i<cashierNum;i++){
+            if(this.cashier.get(i)==null){
+                result=i;
+                break;
+            }
             if(this.cashier.get(i).size()<temp){
                 temp=this.cashier.get(i).size();
                 result=i;
@@ -66,24 +73,25 @@ public class CoffeeShop
            if (nextE.type == 'd'){
                slots++;
                cashier.get(nextE.lineNum).remove();
-               System.out.println("User" + nextE.cusNum + "hangs up at time" + nextE.time);
+               System.out.println("User" + nextE.cusNum + "leaves at time" + nextE.time);
            }
-           else {
-               System.out.print("User" + nextE.cusNum + "came at" + nextE.time);
+           else if (nextE.type=='a'){
+               System.out.print("User" + nextE.cusNum + "comes at" + nextE.time);
                if (slots>0){
                    slots--;
                    int cashNo=this.minCashier();
                    int howlong=this.lineWait(cashNo);
-                   profit+=r.nextFloat()*(p2-p1);
+                   profit+=p1 + r.nextFloat()*(p2-p1);
                    Customer newCus = new Customer(r.nextInt(t2-t1)+t1);
                    howlong+=newCus.waitTime;
                    cashier.get(cashNo).add(newCus);
                    System.out.println("and takes" + howlong);
                    nextE.type='d';
                    nextE.lineNum=cashNo;
+                   nextE.time+=howlong;
                    eventSet.add(nextE);
                }
-               else overflow++; System.out.println("Full shop");
+               else overflow++;
            }
         }
         System.out.println("Shop is closed. Number of overflows: " + overflow + ". Profit: " +

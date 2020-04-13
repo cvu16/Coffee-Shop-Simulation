@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=CoffeeShop
-comment0.text=\r\n\ A\ simulation\ for\ the\ Coffee\ Shop\r\n\r\n\ @author\ EvanVu\r\n
+comment0.text=\n\ A\ simulation\ for\ the\ Coffee\ Shop\n\n\ @author\ EvanVu\n
 comment1.params=cashierNum\ t1\ t2\ cost\ p1\ p2
 comment1.target=CoffeeShop(int,\ int,\ int,\ float,\ float,\ float)
 comment2.params=cusNum\ time
