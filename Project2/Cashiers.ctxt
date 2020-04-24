@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Cashiers
+comment1.params=cashierNum
+comment1.target=Cashiers(int)
+comment2.params=cus
+comment2.target=boolean\ addToCashier(Customer)
+comment2.text=\n\ Add\ a\ new\ Customer\ to\ the\ Cashiers\n
+comment3.params=cus
+comment3.target=boolean\ addToWaitLine(Customer)
+comment4.params=cus
+comment4.target=Customer\ removeCus(Customer)
+comment4.text=\n\ Set\ the\ cashier\ to\ null\ or\ the\ first\ customer\ in\ the\ wait\ line\n
+comment5.params=
+comment5.target=int\ findEmpty()
+comment5.text=\n\ Find\ an\ empty\ cashier\n
+numComments=6

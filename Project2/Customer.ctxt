@@ -1,7 +1,11 @@
 #BlueJ class context
 comment0.target=Customer
-comment0.text=\r\n\ Customer\ class\r\n\r\n\ @author\ EvanVu\r\n
-comment1.params=waitTime
-comment1.target=Customer(float)
-comment1.text=\r\n\ Constructor\ for\ a\ Customer\r\n
-numComments=2
+comment0.text=\n\ Customer\ class\n\n\ @author\ EvanVu\n
+comment1.params=t1\ t2\ p1\ p2\ lineNum
+comment1.target=Customer(int,\ int,\ float,\ float,\ int)
+comment1.text=\n\ Constructor\ for\ a\ Customer\n
+comment2.params=
+comment2.target=Customer()
+comment3.params=cus
+comment3.target=int\ compareTo(Customer)
+numComments=4

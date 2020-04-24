@@ -10,18 +10,16 @@ public class Event implements Comparable<Event>
 {
     int time;
     char type;
-    int lineNum;
-    int cusNum;
+    Customer cus;
     
     public Event(){
-        this(-1,-1,'a',-1);
+        this(null,-1,'a');
     }
     
-    public Event(int cusNum, int time, char type, int lineNum){
-        this.cusNum=cusNum;
+    public Event(Customer cus, int time, char type){
+        this.cus=cus;
         this.time=time;
         this.type=type;
-        this.lineNum=lineNum;
     }
     
     public int compareTo( Event rhs )

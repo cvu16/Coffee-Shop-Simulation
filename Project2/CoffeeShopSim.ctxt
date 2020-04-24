@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=CoffeeShopSim
+comment1.params=cashierNum\ t1\ t2\ cost\ p1\ p2
+comment1.target=CoffeeShopSim(int,\ int,\ int,\ float,\ float,\ float)
+comment2.params=time
+comment2.target=void\ addArrival(int)
+comment3.params=nextE\ count
+comment3.target=void\ departure(Event,\ int)
+comment4.params=nextE\ count
+comment4.target=void\ arrival(Event,\ int)
+comment5.params=
+comment5.target=void\ runSim()
+numComments=6

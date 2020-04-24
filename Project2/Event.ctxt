@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=Event
-comment0.text=\r\n\ Event\ class\ that\ implements\ Comparable\r\n\ to\ arrange\ by\ the\ time\ of\ occurrence\r\n\r\n\ @author\ EvanVu\r\n\ Adapted\ from\ Mark\ Allan\ Weiss\r\n
+comment0.text=\n\ Event\ class\ that\ implements\ Comparable\n\ to\ arrange\ by\ the\ time\ of\ occurrence\n\n\ @author\ EvanVu\n\ Adapted\ from\ Mark\ Allan\ Weiss\n
 comment1.params=
 comment1.target=Event()
-comment2.params=cusNum\ time\ type\ lineNum
-comment2.target=Event(int,\ int,\ char,\ int)
+comment2.params=cus\ time\ type
+comment2.target=Event(Customer,\ int,\ char)
 comment3.params=rhs
 comment3.target=int\ compareTo(Event)
 numComments=4

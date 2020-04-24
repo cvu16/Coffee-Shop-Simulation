@@ -9,17 +9,20 @@ public class Main
 {
     public static void main(String[] args) throws Exception{
         Scanner sc = new Scanner(new File("input.txt"));
+        Scanner sc2 = new Scanner(System.in);
         int cusNum=0;
         float p1 = sc.nextFloat();
         float p2 = sc.nextFloat();
         float cost = sc.nextFloat();
         int t1 = sc.nextInt();
         int t2 = sc.nextInt();
-        CoffeeShop shop = new CoffeeShop(1,t1,t2,cost,p1,p2);
+        int cashierNum;
+        System.out.println("How many cashiers do you want to have for this trial?");
+        cashierNum=sc2.nextInt();
+        CoffeeShopSim shop = new CoffeeShopSim(cashierNum,t1,t2,cost,p1,p2);
         while (sc.hasNext()){
-            cusNum++;
             String newTime = sc.next();
-            /*String[] time = newTime.split(":");
+            /*String[] time = newTime.split(":");   
             
                 int hour = Integer.parseInt(time[0]);
                 int mins = Integer.parseInt(time[1]);
@@ -29,7 +32,7 @@ public class Main
             SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
             Date date = sdf.parse(newTime);
             int eventTime = (int) date.getTime()/1000 - 18000;
-            shop.addArrival(cusNum, eventTime);
+            shop.addArrival(eventTime);
         }
         shop.runSim();
     }

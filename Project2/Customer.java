@@ -4,17 +4,29 @@ import java.util.*;
  *
  * @author EvanVu
  */
-public class Customer
+public class Customer implements Comparable<Customer>
 {
     //Seconds that the Customer takes
-    float waitTime;
+    int waitTime;
+    int lineNum;
+    float profit;
+    Random r = new Random(System.nanoTime());
 
     /**
      * Constructor for a Customer
      */
-    public Customer(float waitTime)
+    public Customer(int t1, int t2, float p1, float p2, int lineNum)
     {
-        this.waitTime = waitTime;
+        this.profit = p1 + r.nextFloat()*(p2-p1);
+        this.lineNum = lineNum;
+        this.waitTime= r.nextInt(t2-t1)+t1;
+    }
+    
+    public Customer(){
+        this.waitTime=0;
     }
 
+    public int compareTo(Customer cus){
+        return this.waitTime - cus.waitTime;
+    }
 }
