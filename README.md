@@ -21,4 +21,4 @@ of ”hh:mm:ss” in the 24-hour format
 The Goal of this project was to examine different numbers of cashiers to be used in the coffee shop and analyze to see the optimal choice, in turn of waiting time and profit
 
 ## Report
-![Profit to number of Cashier](project2.png?raw=true "Title")
+![Profit to number of Cashier](project2.PNG?raw=true "Title")
