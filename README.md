@@ -1,7 +1,7 @@
 # Project 2 - CS 150: Coffee Shop Simulation
 
 ## Intro
-This project is part of the 
+This project is part of the CS150 Course: Data Structures and Algorithms. It tested my understanding of the following data structures in Java: ArrayList, ArrayDeque and PriorityQueue. It also tested my usage of insertion, deletion, sorting of those data structures.
 
 ## Input Specification
 You are given a file “input.txt” containing the following information.
@@ -16,3 +16,8 @@ for a cashier to serve a customer in seconds.
 
 • From the fourth line to the last line is the arrival times of the customers. Each line contains a string in the format
 of ”hh:mm:ss” in the 24-hour format
+
+## Goal
+The Goal of this project was to examine different numbers of cashiers to be used in the coffee shop and analyze to see the optimal choice, in turn of waiting time and profit
+
+## Report
