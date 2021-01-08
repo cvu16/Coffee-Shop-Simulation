@@ -22,3 +22,5 @@ The Goal of this project was to examine different numbers of cashiers to be used
 
 ## Report
 ![Profit to number of Cashier](project2.PNG?raw=true "Title")
+
+After building an event-driven simulation of a coffee shop, the experimenter obtained a program that would take in different numbers of cashiers and produce average total overflow and average total profit. It can be concluded that, to minimize the number of overflows and optimize profit, the number of cashiers to be chosen should be 4 or 3.
